@@ -1,0 +1,46 @@
+@use "../../abstract" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $poppins;
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--clr-common-body-text);
+  line-height: 28px;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color: var(--clr-common-blue);
+}
+
+:root {
+  /* Your default theme */
+  --clr-common-white: #ffffff;
+  --clr-common-black: #000000;
+  --clr-common-blue: #2785ff;
+  --clr-common-heading: #171717;
+  --clr-common-body-text: #636363;
+  --clr-common-border: #e0e2e5;
+  --clr-common-placeholder: #b4b4b4;
+  --clr-theme-1: #2785ff;
+  --clr-bg-white: #ffffff;
+  --clr-bg-gray: #f9f9f9;
+  --clr-bg-black: #000000;
+  --clr-bg-footer: #f9f9f9;
+  --clr-bg-dark: #ffffff;
+  --clr-bg-bodylight: #eff1f5;
+  --clr-common-almost-black: #eff1f5;
+  --jmt-purple: #9b5de5;
+  --jmt-btn-color: #5b33ab;
+  --usdc: #2775c9;
+  --matic: #8247e5;
+  --fiatcurrency: #08ac3f;
+}
