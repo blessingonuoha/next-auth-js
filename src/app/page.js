@@ -2,57 +2,73 @@
 // import { Button } from "@components/ui/button";
 // import { cn } from "../lib/utils";
 import { signIn, useSession } from "next-auth/react";
-// import GoogleButton from "react-google-button";
-// import landingPage from "@/components/landingPage/page";
-// import logo from "@/assets/images/logo.png";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Loader } from "lucide-react";
 
 export default function Home() {
-  const { data: session, status } = useSession();
-
-  if (status === "authenticated") {
-    return (
-      <>
-        <div>Welcome back {session?.user.name}</div>
-      </>
-    );
-  }
-
+  // const { data: session, status } = useSession();
+  const [loading, setIsLoading] = useState(false);
   const callBackURL = "http://localhost:3000/marketing/dashboard";
 
+  const loadingHandler = () => {
+    setIsLoading(true);
+  };
+
+  // if (status === "authenticated") {
+  //   // display welcom msg for 2sec and redirect to dashboard
+  //   return (
+  //     <>
+  //       <div>Welcome back {session?.user.name}</div>
+  //     </>
+  //   );
+  // }
+
   return (
-    <div className="flex h-screen flex-1 flex-col justify-center sm:px-6 py-12 lg:px-8  bg-gradient-to-r from-green-900 to-slate-900">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img
-          className="mx-auto h-10 w-auto"
-          src="/assets/images/logo.png"
-          alt="Your Company"
-        />
+    <>
+      <div className="flex flex-col justify-center place-items-center h-screen px-6 py-12 lg:px-8 bg-gradient-to-t from-orange-700 to-slate-900">
+        <div className=" flex flex-col justify-center h-[400px] min-w-[60%] bg-background/30 px-5 rounded-xl bg-opacity-20 backdrop-filter backdrop-blur-sm shadow-lg">
+          <div className="sm:mx-auto sm:w-full sm:max-w-md">
+            <img
+              className="mx-auto h-15 w-auto"
+              src="/assets/images/logo.png"
+              alt="Your Company"
+            />
 
-        <h2 className="mt-10 text-center text-2xl font-thin leading-5 tracking-tight text-white">
-          Jamit dashboard
-        </h2>
+            <h2 className="mt-10 text-center text-[1.2rem] font-bold leading-5 tracking-tight text-gray-900 ">
+              Jamit Dashboard
+            </h2>
+          </div>
+
+          <div className="flex flex-col justify-center items-center mt-10 mx-auto sm:w-full sm:max-w-sm ">
+            <Button
+              onClick={() => {
+                signIn("google", { callbackUrl: callBackURL });
+                loadingHandler();
+              }}
+              type="submit"
+              className="min-w-[50%] h-[50px] rounded-sm py-4 px-6 text-sm font-thin leading-6 shadow-lg text-white transition-colors duration-150 ease-in-out hover:bg-orange-700"
+            >
+              {loading ? (
+                <>
+                  <svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
+                    <Loader />
+                  </svg>
+                  <span>Please wait</span>
+                </>
+              ) : (
+                <p>Login with Google</p>
+              )}
+            </Button>
+
+            <div className="mt-10 md:flex md:space-x-2 text-center text-sm text-white">
+              <p className="xs:pb-3">Not a member?</p>
+              <span className="font-semibold ">Contact your admin</span>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="flex flex-col justify-center items-center mt-10 mx-auto sm:w-full sm:max-w-sm ">
-        <button
-          onClick={() => signIn("google", { callbackUrl: callBackURL })}
-          type="submit"
-          className="min-w-[50%] max-w-full h-[40px] rounded-md bg-gradient-to-t from-green-700 to-gray-500 px-4 py-2 text-sm font-bold leading-6 text-gray-900 shadow-lg  hover:border-gray-400 hover:border-2 hover:bg-none"
-        >
-          Login with Google
-        </button>
-
-        <p className="mt-10 text-center text-sm text-white">
-          Not a member?{" "}
-          <a
-            href="#"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-          >
-            Contact your admin
-          </a>
-        </p>
-      </div>
-    </div>
+    </>
 
     // <>
     //   <p>{session?.user?.email}</p>

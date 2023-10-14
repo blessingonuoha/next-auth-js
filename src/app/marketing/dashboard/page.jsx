@@ -1,8 +1,9 @@
 "use client";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-// import Marketing from "@/components/marketing";
-import Page from "@/components/page";
+
+import { Overview } from "@/components/Overview";
+import { MainNav } from "@/components/MainNav";
 
 function page() {
   const router = useRouter();
@@ -19,15 +20,15 @@ function page() {
   const { data: session, status } = useSession();
 
   if (status === "authenticated") {
-    return <Page></Page>;
+    return (
+      <main>
+        <MainNav />
+        <section className="p-7 mx-auto">
+          <Overview />
+        </section>
+      </main>
+    );
   } else {
-    // <button
-    //         onClick={() => {
-    //           redirectHandler();
-    //         }}
-    //       >
-    //         LogOut
-    //       </button>
     return null;
   }
 }

@@ -11,14 +11,14 @@ const handler = NextAuth({
     }),
   ],
   callbacks: {
-    async session({ session }) {
-      // await connectDB();
-      // const sessionUser = await User.findOne({ email: session.user.email });
-      // session.user.id = sessionUser._id;
-      session.user.name = session.name;
-      // console.log(sessionUser);
-      return session;
-    },
+    // async session({ session }) {
+    //   // await connectDB();
+    //   // const sessionUser = await User.findOne({ email: session.user.email });
+    //   // session.user.id = sessionUser._id;
+    //   session.user.name = session.name;
+    //   // console.log(sessionUser);
+    //   return session;
+    // },
     async signIn({ profile, account }) {
       // await connectDB();
       try {
@@ -32,23 +32,10 @@ const handler = NextAuth({
           } else return true;
           // "http://localhost:3000/api/auth/signin?error=OAuthSignin"
         }
-        // else {
-        //   const userExist = await User.findOne({ email: profile.email });
 
-        //   if (!userExist) {
-        //     const user = await User.create({
-        //       // id: profile.id,
-        //       name: profile.name,
-        //       email: profile.email,
-        //       // role: profile.role,
-        //       email_verified: profile?.email_verified?.true ?? false,
-        //     });
-        //   }
-        // }
         return true;
       } catch (error) {
         console.log(error);
-        return false;
       }
 
       // console.log(profile);

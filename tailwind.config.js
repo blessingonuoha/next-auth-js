@@ -15,7 +15,20 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+
     extend: {
+      screens: {
+        xs: "320px",
+        sm: "425px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+      },
+      backdropBlur: {
+        xs: "2px",
+        sm: "6px",
+        lg: "12px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
