@@ -4,8 +4,6 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import Marketing from "./Marketing";
 import { CalendarDateRangePicker } from "./DateRangePicker";
 import { RecentSales } from "./RecentSales";
-import useIsMobile from "../hooks/useIsMobile";
-import CalculatorComponent from "./CalculatorComponent";
 
 const data = [
   {
@@ -45,7 +43,7 @@ export function Overview() {
         <section
           className={`flex flex-col xs:justify-center md:p-3 sm:w-full border border-gray-500 w-[100%] rounded-md `}
         >
-          <span className="text-gray-200 p-2">Overview</span>
+          <span className="text-gray-200 p-2">Premium Users</span>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={data}>
               <XAxis
@@ -70,7 +68,7 @@ export function Overview() {
                 padding={{ top: 0, bottom: 10 }}
               />
 
-              <Bar dataKey="total" fill="#d63b" radius={[8, 8, 0, 0]} />
+              <Bar dataKey="total" fill="#FFFF00" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </section>

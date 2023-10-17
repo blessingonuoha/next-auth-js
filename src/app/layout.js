@@ -5,16 +5,16 @@ import AuthProvider from "../../context/AuthProvider";
 // const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Dashboard",
+  title: "Backstage",
   description: "Managed by Jamit Organization",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-[#212121]">
+      <body className="bg-[#000000f5]">
         <AuthProvider>
-          <main>{children}</main>
+          {children}
         </AuthProvider>
       </body>
     </html>

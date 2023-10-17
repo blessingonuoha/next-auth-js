@@ -21,12 +21,13 @@ function page() {
 
   if (status === "authenticated") {
     return (
-      <main>
-        <MainNav />
-        <section className="p-7 mx-auto">
+      <>
+      <MainNav />
+        <section className="p-7 mx-auto mb-7">
           <Overview />
         </section>
-      </main>
+      </>
+
     );
   } else {
     return null;

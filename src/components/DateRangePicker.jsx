@@ -1,17 +1,15 @@
 "use client";
 
-import * as React from "react";
 import { useState } from "react";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { addDays, format } from "date-fns";
 import useIsMobile from "@/hooks/useIsMobile";
-// import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { Download } from "lucide-react";
+// import { Download } from "lucide-react";
 import { Calendar } from "./ui/calender";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
-export function CalendarDateRangePicker({ className }) {
+export function CalendarDateRangePicker() {
   const mobile = useIsMobile();
 
   // sets the initial state of the celender
@@ -24,20 +22,16 @@ export function CalendarDateRangePicker({ className }) {
     <div className="grid ">
       <Popover>
         <div className="flex flex-row justify-between my-3 md:flex-row items-end">
-          <h1 className="xs:text-[16px] md:text-[18px] font-extrabold text-gray-200">
+          {/* <h1 className="xs:text-[16px] md:text-[18px] font-extrabold text-gray-200">
             Dashboard
-          </h1>
-          <div className="flex justify-center space-x-1">
-            <PopoverTrigger>
-              <Button
-                id="date"
-                variant={"outline"}
-                className={
-                  ("xs:w-[150px] w-[260px] justify-center text-left font-normal hover:outline-slate-800",
-                  !date && "text-muted-foreground")
+          </h1> */}
+          <div className="flex justify-center px-2 py-2">
+            <PopoverTrigger id="date" variant={"outline"} className={
+                  ("py-2 px-3 flex justify-center items-center rounded-md bg-white text-slate-800 text-left font-normal"
+                  )
                 }
               >
-                <CalendarIcon className="mr-2 h-4 w-4 xs:hidden md:block" />
+                <CalendarIcon className="mr-2 h-4 w-4 " />
                 {/* displays the dates picked on the calender on the button */}
                 {date?.from ? (
                   date.to ? (
@@ -51,14 +45,13 @@ export function CalendarDateRangePicker({ className }) {
                 ) : (
                   <span>Pick a date</span>
                 )}
-              </Button>
             </PopoverTrigger>
             <Button
-              className="xs:px-3 md:mx-3  md:mt-0 text-center font-normal md:w-[100px] border md:border-0"
-              variant={`${mobile ? "none" : "destructive"}`}
+              className="xs:px-3 xs:mx-2 md:mx-3 md:mt-0 text-center font-normal md:w-[100px] md:border-0"
+              variant={"destructive"}
               size="none"
             >
-              {!mobile ? "Download" : <Download color="white" />}
+              Download
             </Button>
           </div>
         </div>
