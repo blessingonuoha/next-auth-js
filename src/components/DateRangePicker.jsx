@@ -46,13 +46,13 @@ export function CalendarDateRangePicker() {
                   <span>Pick a date</span>
                 )}
             </PopoverTrigger>
-            <Button
+            {/* <Button
               className="xs:px-3 xs:mx-2 md:mx-3 md:mt-0 text-center font-normal md:w-[100px] md:border-0"
               variant={"destructive"}
               size="none"
             >
               Download
-            </Button>
+            </Button> */}
           </div>
         </div>
 

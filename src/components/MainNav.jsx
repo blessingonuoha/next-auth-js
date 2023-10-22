@@ -36,7 +36,7 @@ export function MainNav({ className, ...props }) {
           placeholder="Search..."
           className="md:w-[300px] lg:w-[700px]"
         /> */}
-        <Link href="/marketing/dashboard" className="flex items-center ">
+        <Link href="/backstage" className="flex items-center ">
           <Image
             src={Logo}
             width={`${mobile ? 30 : 35}`}
