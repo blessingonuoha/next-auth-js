@@ -6,10 +6,12 @@ const getTotalListeningMinutes = async() => {
 }
 
 
-export const useTotalListeningMinutes = (onSuccess, onError) => {
+export const useGetTotalListeningMinutes = (onSuccess, onError) => {
   return useQuery({
     queryKey: ["totalListeningMinutes"],
     queryFn: getTotalListeningMinutes,
+    refetchInterval: 300000,
+    refetchIntervalInBackground: true,
     refetchOnMount: true,
     onError,
     onSuccess,

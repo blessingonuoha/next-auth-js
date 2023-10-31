@@ -10,7 +10,9 @@ export const useGetActiveCreators = (onSuccess, onError) => {
   return useQuery({
     queryKey: ["activeCreators"],
     queryFn: getActiveCreators,
-    // refetchOnMount: true,
+    refetchInterval: 300000,
+    refetchIntervalInBackground: true,
+    refetchOnMount: true,
     onError,
     onSuccess,
     select: (data) => {

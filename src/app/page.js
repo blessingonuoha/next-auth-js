@@ -17,18 +17,18 @@ export default function Home() {
 
 
   return (
-    <div className="flex flex-col justify-center place-items-center h-screen px-6 py-12 lg:px-8 bg-[#000000f5]">
-        <div className=" flex flex-col justify-center h-[400px] min-w-[50vw] border border-gray-500 px-5 rounded-xl bg-opacity-20 backdrop-filter backdrop-blur-sm shadow-lg">
+    <div className="flex flex-col justify-center place-items-center h-screen px-6 py-12 lg:px-8 dark:bg-[#000000f5] ">
+        <div className=" flex flex-col justify-center h-[400px] min-w-[50vw] border dark:border-gray-500 bg-slate-500 px-5 rounded-xl bg-opacity-20 backdrop-filter backdrop-blur-sm shadow-lg">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <img
+            {/* <img
               className="mx-auto h-15 w-auto"
               src="/assets/images/logo.png"
               alt="jamit-logo"
-            />
+            /> */}
 
-            <h2 className="mt-10 text-center text-[1.2rem] font-bold leading-5 tracking-tight text-white">
+            <h1 className="mt-10 text-center text-[1.7rem] font-bold leading-5 tracking-tight dark:text-white">
               Backstage
-            </h2>
+            </h1>
           </div>
 
           <div className="flex flex-col justify-center items-center mt-10 mx-auto sm:w-full sm:max-w-sm ">
@@ -36,7 +36,7 @@ export default function Home() {
               onClick={() => {
                 signInHandler();
               }}
-              className="min-w-[50%] h-[50px] rounded-sm py-4 px-6 text-sm font-thin leading-6 shadow-lg text-white transition-colors duration-150 ease-in-out hover:bg-orange-700"
+              className="min-w-[50%] h-[50px] rounded-sm py-4 px-6 text-md font-thin leading-6 shadow-lg dark:text-white transition-colors duration-150 ease-in-out hover:bg-transparent border-2 border-primary hover:border-2 hover:text-black"
             >
               {loading ? (
                 <>
@@ -50,7 +50,7 @@ export default function Home() {
               )}
             </Button>
 
-            <div className="mt-10 md:flex md:space-x-2 text-center text-sm text-white">
+            <div className="mt-10 md:flex md:space-x-2 text-center text-sm dark:text-white">
               <p className="xs:pb-3">Not a member?</p>
               <span className="font-semibold ">Contact your admin</span>
             </div>

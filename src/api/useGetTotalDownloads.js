@@ -10,7 +10,9 @@ export const useGetTotalDownloads = (onSuccess, onError) => {
   return useQuery({
     queryKey: ["totalDownloads"],
     queryFn: getTotalDownloads,
-    // refetchOnMount: true,
+    refetchInterval: 30000,
+    refetchIntervalInBackground: true,
+    refetchOnMount: true,
     onError,
     onSuccess,
     select: (data) => {

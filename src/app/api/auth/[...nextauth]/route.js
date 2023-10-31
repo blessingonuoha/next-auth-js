@@ -6,15 +6,8 @@ const handler = NextAuth({
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      // authorization: {
-      //   params: {
-      //     prompt: "consent",
-      //     access_type: "offline",
-      //     response_type: "code"
-      //   }
-      // },
       httpOptions: {
-        timeout: 100000,
+        timeout: 40000,
       },
       
     }),
@@ -29,16 +22,6 @@ const handler = NextAuth({
       session.user.username = token.username;
       // console.log("session", session.user.refreshToken)
       return session;
-    },
-
-    async redirect({ url, baseUrl }) {
-      // console.log("url", url)
-      // console.log("baseUrl", baseUrl)
-    if (url.startsWith("/")) return `${baseUrl}${url}`
-    // Allows callback URLs on the same origin
-    else if (new URL(url).origin === baseUrl) return url
-    return baseUrl
-       
     },
 
     async jwt({ token, account, user }) {
@@ -60,11 +43,10 @@ const handler = NextAuth({
 
       //Access token expired, time to refresh it
       console.log("Existing Access Token has expired, Log in again");
-      // return await refreshAccessToken(token);
-      return this.redirect("/api/auth/signin");
+      return await this.redirect("http://localhost:3000");
+      // return null
     },
     async signIn({ profile, account }) {
-      // await connectDB();
       try {
         if (account?.provider === "google") {
           const restrictUser =
@@ -85,10 +67,7 @@ const handler = NextAuth({
       // console.log(profile);
     },
 
-    },
-    // pages: {
-    //   error: '/auth/error'
-    // }    
+    },   
   },
   
 );

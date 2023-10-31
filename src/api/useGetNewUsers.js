@@ -9,7 +9,9 @@ export const useGetNewUsers = (onSuccess, onError) => {
     return useQuery({
       queryKey: ["newUsers"],
       queryFn: getNewUsers,
-      // refetchOnMount: true,
+      refetchInterval: 300000,
+    refetchIntervalInBackground: true,
+    refetchOnMount: true,
       onError,
       onSuccess,
       select: (data) => {

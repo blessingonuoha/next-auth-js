@@ -5,11 +5,12 @@ const getFiatTransaction = async() => {
   return await axios.get(`${process.env.API_ENDPOINT}/transaction/fiat/list/latest`) 
 }
 
-
 export async function useFiatTransaction (onSuccess, onError) {
   return useQuery({
     queryKey: ["fiatTransaction"],
     queryFn: getFiatTransaction,
+    // refetchInterval: 300000,
+    // refetchIntervalInBackground: true,
     refetchOnMount: true,
     onError,
     onSuccess,

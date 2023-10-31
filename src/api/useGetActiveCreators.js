@@ -10,7 +10,9 @@ export const useGetActiveListeners = (onSuccess, onError) => {
   return useQuery({
     queryKey: ["activeListeners"],
     queryFn: getActiveListeners,
-    // refetchOnMount: true,
+    refetchInterval: 300000,
+    refetchIntervalInBackground: true,
+    refetchOnMount: true,
     onError,
     onSuccess,
     select: (data) => {
